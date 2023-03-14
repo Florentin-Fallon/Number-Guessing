@@ -17,7 +17,6 @@ body {
     text-align: center;
 }
 .home-containt {
-    
 }
 .title {
     font-size: 60px;
@@ -28,12 +27,8 @@ body {
     padding: 20px;
     border-radius: 6px;
 }
-.subtitle {
-    font-size: 30px;
-    font-weight: 400;
-}
 .game-desc {
-
+    margin-bottom: 70px;
 }
 .form {
 
