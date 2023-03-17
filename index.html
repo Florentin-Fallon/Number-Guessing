@@ -1,131 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Number guessing game</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" href="">
+    <title>the king of numbers</title>
 </head>
-
 <body>
-<div class="home">
-  <div class="home-containt">
-    <div class="picture">
-      <img src="images/mountain-7775867_640.jpg">
+    <div class="home-container">
+        <div class="title-home">
+            <h1 class="title">Bienvenue</h1>
+        </div>
+        <div class="home-wrapper">
+            <button><a href="easy.html">Facile</a></button>
+            <button><a href="">Moyen</a></button>
+            <button><a href="">Difficile</a></button>
+        </div>
     </div>
-    <h1 class="title">Bienvenue sur Number guessing game</h1>
-  </div>
-  <div class="game-desc">
-    <p>Vous devez choisir un nombre entre 1 et 200 avec 10 chances</p>
-  </div>
-  <div class="form">
-    <label for="guessField">Entrez votre choix </label>
-    <input type="number" min="1" max="200" required id="guessField" class="guessField">
-    <input type="submit" value="Valider" class="guessSubmit">
-  </div>
-
-  <div class="resultParas">
-    <p class="guesses"></p>
-    <p class="lastResult"></p>
-    <p class="lowOrHi"></p>
-  </div>
-</div>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-      let randomNumber = Math.floor(Math.random() *200) + 1;
-
-      let guesses = document.querySelector('.guesses');
-      let lastResult = document.querySelector('.lastResult');
-      let lowOrHi = document.querySelector('.lowOrHi');
-
-      let guessSubmit = document.querySelector('.guessSubmit');
-      let guessField = document.querySelector('.guessField');
-
-      let guessCount = 1;
-      let resetButton;
-      guessField.focus();
-
-      function checkGuess(){
-        let userGuess = Number(guessField.value);
-        if (guessCount === 1) {
-          guesses.textContent = 'Vos propositions précédentes : ';
-        }
-        guesses.textContent += userGuess + ' ';
-
-        if (userGuess === randomNumber) {
-          lastResult.textContent = 'Bravo, vous avez trouvé le nombre !';
-          lastResult.style.color = 'green';
-          lowOrHi.textContent = '';
-          setGameOver();
-        } else if (guessCount === 10) {
-          lastResult.textContent = 'Vous avez perdu !';
-          setGameOver();
-        } else {
-          lastResult.textContent = 'Faux !';
-          lastResult.style.color = 'red';
-          if (userGuess < randomNumber) {
-            lowOrHi.textContent = 'Le nombre saisi est trop petit !';
-          } else if (userGuess > randomNumber) {
-            lowOrHi.textContent = 'Le nombre saisi est trop grand !';
-          }
-        }
-
-        guessCount++;
-        guessField.value = '';
-        guessField.focus();
-      }
-      guessSubmit.addEventListener('click', checkGuess);
-
-      function setGameOver() {
-        guessField.disabled = true;
-        guessSubmit.disabled = true;
-        resetButton = document.createElement('button');
-        resetButton.textContent = 'Start new game';
-        document.body.appendChild(resetButton);
-        resetButton.addEventListener('click', resetGame);
-      }
-      function resetGame() {
-        guessCount = 1;
-
-        let resetParas = document.querySelectorAll('.resultParas p');
-        for (let i = 0 ; i < resetParas.length ; i++) {
-          resetParas[i].textContent = '';
-        }
-
-        resetButton.parentNode.removeChild(resetButton);
-
-        guessField.disabled = false;
-        guessSubmit.disabled = false;
-        guessField.value = '';
-        guessField.focus();
-
-        randomNumber = Math.floor(Math.random() * 200) + 1;
-      }
-    </script>
-  </body>
+</body>
 </html>
