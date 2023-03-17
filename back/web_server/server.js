@@ -5,7 +5,7 @@ const host = 'localhost';
 const server = http.createServer(function (req, res) {
     const url = req.url;
     if (url === '/'){
-        res.end("Bonjour vous êtes bien sur le serveur de number-guessing")
+        res.end('Bienvenue')
     }
 });
 
